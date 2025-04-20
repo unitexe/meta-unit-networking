@@ -1,0 +1,12 @@
+[NetDev]
+Name=wg0
+Kind=wireguard
+Description=wg0 - wireguard tunnel
+
+[WireGuard]
+ListenPort=51820
+PrivateKeyFile=/etc/systemd/network/wg0.key
+
+[WireGuardPeer]
+AllowedIPs=10.0.200.21/32
+PublicKey=PVP0zbbVYx0Wvkw2BZrBZaeQIQCJSWY4eHv06YaktnY=

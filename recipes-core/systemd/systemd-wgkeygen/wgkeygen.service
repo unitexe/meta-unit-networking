@@ -1,0 +1,13 @@
+[Unit]
+Description=Generate wireguard keys for device
+Before=systemd-networkd.target
+ConditionPathExists=!/root/.wg/privatekey
+ConditionPathExists=!/root/.wg/publickey
+
+[Service]
+Type=simple
+ExecStartPre=/usr/bin/bash -c 'mkdir -p /root/.wg'
+ExecStart=/usr/bin/bash -c 'wg genkey | tee /root/.wg/privatekey | wg pubkey > /root/.wg/publickey'
+
+[Install]
+WantedBy=multi-user.target
