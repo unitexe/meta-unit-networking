@@ -9,11 +9,10 @@ SRC_URI = "\
     file://wgkeygen.service \
 "
 
-S = "${WORKDIR}/sources"
-UNPACKDIR = "${S}"
+S = "${UNPACKDIR}"
 
 do_install() {
-    install -D -p -m0644 ${S}/wgkeygen.service ${D}${systemd_system_unitdir}/wgkeygen.service
+    install -D -p -m0644 ${UNPACKDIR}/wgkeygen.service ${D}${systemd_system_unitdir}/wgkeygen.service
 }
 
 inherit systemd
